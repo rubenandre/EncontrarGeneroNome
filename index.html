@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Name Gender</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/sign-in/signin.css">
+  </head>
+  <body class="text-center">
+    <form class="form-signin">
+      <img class="mb-4" src="https://image.flaticon.com/icons/svg/63/63756.svg" alt="" width="72" height="72">
+      <label for="inputNome" class="sr-only">Nome</label>
+      <input type="text" id="inputNome" class="form-control" placeholder="Nome..." required autofocus>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="button" onclick="getGender(document.getElementById('inputNome').value)">Encontrar Gênero</button>
+      <br>
+      <label id='msg'></label>
+    </form>  
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
