@@ -1,19 +1,13 @@
-function getGender(nome){
-    fetch('https://api.genderize.io/?name=' + nome).then(response => {
-      return response.json();
+const getGender = nome => {
+    fetch('https://api.genderize.io/?name=' + nome).then(res => {
+        return res.json()
     }).then(data => {
-      let genero = data.gender
-      let percentagem = data.probability
-      if(genero && percentagem > 0.25){
-          if(genero === 'male'){
-            document.getElementById('msg').innerHTML = 'Masculino'
-          } else {
-            document.getElementById('msg').innerHTML = 'Feminino'
-          }
-      } else {
-        document.getElementById('msg').innerHTML = 'Não temos a certeza'
-      }
-    }).catch(err => {
+        let gender = data.gender
+        let probability = data.probability
 
-    });
+        document.getElementById('msg').innerHTML = probability > 0.6 ? gender : 'Não temos a certeza'
+
+    }).catch(err => {
+        if (err) alert('Ocorreu um erro inesperado na conexão com o servidor')
+    })
 }
